@@ -68,7 +68,7 @@ exports.signup = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         // Determine if the account is approved based on the account type
-        const approved = accountType === "Instructor" ? false : true;
+        const approved = accountType === "Instructor" ? true : false;
 
         // Create the additional profile for the user
         const profileDetails = await Profile.create({
