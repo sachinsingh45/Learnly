@@ -1,12 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 html, body {
+    margin: 0;
     overflow-x: hidden;
 }
+*{
 
+}
 .homepage_bg {
-    /* background-color: black; */
     background: url("../src/assets/Images/bghome.svg");
 }
+
+/* https://10015.io/tools/css-loader-generator */
+.spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 9px solid #f1f2ff;
+    animation: spinner-bulqg1 0.8s infinite linear alternate,
+      spinner-oaa3wk 1.6s infinite linear;
+  }

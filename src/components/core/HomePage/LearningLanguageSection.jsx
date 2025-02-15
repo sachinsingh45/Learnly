@@ -1,53 +1,48 @@
-import React from 'react'
-import HighlightText from './HighlightText'
-import know_your_progress  from "../../../assets/Images/Know_your_progress.png"
-import compare_with_others from "../../../assets/Images/Compare_with_others.png"
-import plan_your_lesson from "../../../assets/Images/Plan_your_lessons.png"
-import CTAButton from "../HomePage/Button"
+import React from 'react';
+import { motion } from 'framer-motion';
+import HighlightText from './HighlightText';
+import know_your_progress from '../../../assets/Images/Know_your_progress.png';
+import compare_with_others from '../../../assets/Images/Compare_with_others.png';
+import plan_your_lesson from '../../../assets/Images/calender.png';
+import CTAButton from '../HomePage/Button';
 
 const LearningLanguageSection = () => {
   return (
-    <div className='mt-[130px] mb-32'>
-      <div className='flex flex-col gap-5 items-center'>
+    <div className='mt-[130px] mb-32 '>
+      <div className='flex flex-col gap-6 items-center text-center'>
+        <h2 className='text-4xl font-semibold text-white'>
+          Your Swiss Knife for
+          <HighlightText text={' learning any language'} />
+        </h2>
+        <p className='text-richblack-300 text-lg font-medium max-w-2xl'>
+          Make learning multiple languages easy with <b>20+ languages</b>, realistic voice-over, progress tracking, and a customizable schedule.
+        </p>
+      </div>
 
-            <div className='text-4xl font-semibold text-center'>
-                Your Swiss Knife for
-                <HighlightText text={" learning any language"} />
-            </div>
+      {/* Image Section with Animations */}
+      <div className='flex flex-col md:flex-row items-center justify-center gap-8 mt-10'>
+        {[know_your_progress, compare_with_others, plan_your_lesson].map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt={`FeatureImage${index}`}
+            className='object-contain w-[250px] md:w-[300px] cursor-pointer hover:scale-105 transition-transform duration-300'
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            whileHover={{ scale: 1.1 }}
+          />
+        ))}
+      </div>
 
-            <div className='text-center text-richblack-600 mx-auto text-base font-medium w-[70%]'>
-            Using spin making learning multiple languages easy. with 20+ languages realistic voice-over, progress tracking, custom schedule and more.
-            </div>
-
-            <div className='flex flex-row items-center justify-center mt-5'>
-                <img 
-                    src = {know_your_progress}
-                    alt = "KNowYourProgressImage"
-                    className='object-contain -mr-32 '
-                />
-                <img 
-                    src = {compare_with_others}
-                    alt = "KNowYourProgressImage"
-                    className='object-contain'
-                />
-                <img 
-                    src = {plan_your_lesson}
-                    alt = "KNowYourProgressImage"
-                    className='object-contain -ml-36'
-                />
-            </div>
-
-            <div className='w-fit'>
-                <CTAButton active={true} linkto={"/signup"}>
-                    <div>
-                        Learn more
-                    </div>
-                </CTAButton>
-            </div>
-
+      {/* CTA Button */}
+      <div className='mt-10'>
+        <CTAButton active={true} linkto={'/signup'}>
+          <span>Learn more</span>
+        </CTAButton>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LearningLanguageSection
+export default LearningLanguageSection;

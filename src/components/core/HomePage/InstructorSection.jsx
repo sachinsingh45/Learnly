@@ -1,47 +1,49 @@
-import React from 'react'
-import Instructor from "../../../assets/Images/Instructor.png"
-import HighlightText from './HighlightText'
-import CTAButton from "../HomePage/Button"
-import { FaArrowRight } from 'react-icons/fa'
+import React from 'react';
+import { motion } from 'framer-motion';
+import Instructor from '../../../assets/Images/Instructor.png';
+import HighlightText from './HighlightText';
+import CTAButton from '../HomePage/Button';
+import { FaArrowRight } from 'react-icons/fa';
 
 const InstructorSection = () => {
   return (
-    <div className='mt-16'>
-      <div className='flex flex-row gap-20 items-center'>
+    <div className='pt-16 overflow-x-hidden flex flex-col lg:flex-row items-center gap-20 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-2xl shadow-lg'>
+      
+      <motion.div 
+        className='w-full lg:w-[50%]' 
+        initial={{ opacity: 0, x: -50 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.6 }}
+      >
+        <img src={Instructor} alt='Instructor' className='shadow-lg rounded-lg w-full' />
+      </motion.div>
 
-        <div className='w-[50%]'>
-            <img
-                src={Instructor}
-                alt=""
-                className='shadow-white'
-            />
-        </div>
+      <motion.div 
+        className='w-full lg:w-[50%] flex flex-col gap-6 text-white' 
+        initial={{ opacity: 0, x: 50 }} 
+        animate={{ opacity: 1, x: 0 }} 
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className='text-4xl font-semibold'>
+          Become an
+          <HighlightText text={' Instructor'} />
+        </h2>
 
-        <div className='w-[50%] flex flex-col gap-10'>
-            <div className='text-4xl font-semobold w-[50%]'>
-                Become an
-                <HighlightText text={"Instructor"} />
+        <p className='text-lg font-medium w-[80%]'>Inspire learners globally by sharing your expertise! 🚀 Learnly empowers you with cutting-edge tools, seamless support, and a thriving community—so you can <HighlightText text={' teach what you love, earn what you deserve, and make a lasting impact'} />.
+        </p>
+
+        <div className='w-fit'>
+          <CTAButton active={true} linkto={'/signup'}>
+            <div className='flex flex-row gap-2 items-center'>
+              Start Teaching Today
+              <FaArrowRight />
             </div>
-
-            <p className='font-medium text-[16px] w-[80%] text-richblack-300'>
-            Instructors from around the world teach millions of students on StudyNotion. We provide the tools and skills to teach what you love.
-            </p>
-
-            <div className='w-fit'>
-                <CTAButton active={true} linkto={"/signup"}>
-                    <div className='flex flex-row gap-2 items-center'>
-                        Start Learning Today
-                        <FaArrowRight />
-                    </div>
-                </CTAButton>
-            </div>
-
-
+          </CTAButton>
         </div>
+      </motion.div>
 
-      </div>
     </div>
-  )
-}
+  );
+};
 
-export default InstructorSection
+export default InstructorSection;
