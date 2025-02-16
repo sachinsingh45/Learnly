@@ -9,7 +9,13 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { FaHome, FaBook, FaUser, FaSignInAlt, FaUserPlus } from "react-icons/fa"; // Import icons
+import {
+  FaHome,
+  FaBook,
+  FaUser,
+  FaSignInAlt,
+  FaUserPlus,
+} from "react-icons/fa"; // Import icons
 
 const subLinks = [
   {
@@ -98,20 +104,29 @@ const Navbar = () => {
                         ></div>
 
                         {/* Dropdown Content */}
-                        <div className="fixed left-1/2 transform -translate-x-1/2 top-20 z-50 flex flex-col rounded-md bg-richblack-5 p-4 text-richblack-900 w-[300px] max-h-[400px] overflow-y-auto">
-                          <div className="absolute left-1/2 top-0 transform -translate-x-1/2 -translate-y-1/2 h-6 w-6 rotate-45 rounded bg-richblack-5"></div>
+                        {/* Dropdown Content */}
+                          <div className="absolute left-1/3 top-0 transform -translate-x-1/2 translate-y-14 h-6 w-6 rotate-45 rounded bg-yellow-25 border-t-2 border-l-2 border-yellow-25"></div>
+                        <div className="fixed left-1/2 transform -translate-x-1/2 top-20 z-50 flex flex-col rounded-md bg-richblack-900 p-4 text-richblack-5 w-[300px] max-h-[400px] overflow-y-auto shadow-lg border-2 border-yellow-25">
+                          {/* Arrow at the top of the dropdown */}
+
+                          {/* Dropdown Items */}
                           {subLinks.length ? (
                             subLinks.map((subLink, index) => (
                               <Link
                                 to={`${subLink.link}`}
                                 key={index}
                                 onClick={closeCatalogDropdown}
+                                className="p-2 border-b-2-blue hover:bg-richblack-700 rounded-md transition-all duration-200 ease-in-out"
                               >
-                                <p>{subLink.title}</p>
+                                <p className="text-richblack-300 hover:text-white">
+                                  {subLink.title}
+                                </p>
                               </Link>
                             ))
                           ) : (
-                            <div></div>
+                            <div className="text-center text-richblack-500">
+                              No items found
+                            </div>
                           )}
                         </div>
                       </>
