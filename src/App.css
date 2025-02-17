@@ -3,7 +3,9 @@ html, body {
     overflow-x: hidden;
 }
 *{
-
+    /* outline: 2px solid red; */
+    /* border: 1px solid;
+    border-color: red; */
 }
 .homepage_bg {
     background: url("../src/assets/Images/bghome.svg");
